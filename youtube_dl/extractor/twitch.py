@@ -628,6 +628,9 @@ class TwitchStreamIE(TwitchBaseIE):
                 'height': int(m.group('height')),
             })
 
+        fps = stream.get('average_fps')
+        game = channel.get('game') or stream.get('game')
+
         return {
             'id': compat_str(stream['_id']),
             'display_id': channel_id,
